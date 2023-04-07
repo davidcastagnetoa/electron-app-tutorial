@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Midumark</title>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Hi there!</h2>
     <h2>General Kenobi</h2>
-    <p>https://youtu.be/ir9yaSgbOdY?t=103</p>
-</body>
+    <p>https://youtu.be/ir9yaSgbOdY?t=1034</p>
+    <button id="alwaysOnTopBtn">Toggle Always On Top</button>
+    <script>
+      const { ipcRenderer } = require("electron");
+
+      const alwaysOnTopBtn = document.getElementById("alwaysOnTopBtn");
+      alwaysOnTopBtn.addEventListener("click", () => {
+        ipcRenderer.send("toggle-always-on-top");
+      });
+
+      const { remote } = window.require("electron");
+
+    </script>
+  </body>
 </html>
+
+<!-- Ejemplo en react
+import { ipcRenderer } from "electron";
+
+function Button() {
+  const handleClick = () => {
+    ipcRenderer.send("toggle-always-on-top");
+  };
+
+  return (
+    <button onClick={handleClick}>Toggle Always On Top</button>
+  );
+}
+
+export default Button; -->
